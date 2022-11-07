@@ -41,7 +41,6 @@ public class LL {
         }
         currNode.next=newNode;
     }
-
     public void printList(){
         if(head==null){
             System.out.println("Nothing to print. List is Empty.");
@@ -54,7 +53,6 @@ public class LL {
         }
         System.out.println();
     }
-
     public void deleteFirst(){
         if(head==null){
             System.out.println("Nothing to Delete. List is Empty.");
@@ -104,19 +102,37 @@ public class LL {
         newNode.next=startNode.next;
         startNode.next=newNode;
     }
+    public void deleteNode(int val){
+        if(head==null){
+            System.out.println("The list is Empty, Nothing to delete");
+            return;
+        }
+
+        if(head.val==val){
+            head=head.next;
+            return;
+        }
+        Node currNode=head;
+        while(currNode.next != null){
+            if(currNode.next.val == val){
+                currNode.next=currNode.next.next;
+                return;
+            }
+            else{
+                currNode=currNode.next;
+            }
+        }
+        System.out.println("Node not found");
+    }
 
     public static void main(String[] args) {
         LL list=new LL();
-        int[] arr={1,2,3,4,5,6,7};
+        int[] arr={1,2,3,4,5,6,7,8,9};
         for(int num: arr){
             list.addLast(num);
         }
         list.printList();
-        list.add(4,78);
+        list.deleteNode(6);
         list.printList();
-        int tri=(4*5)/2;
-        System.out.println(tri);
-
-        System.out.println(list.size());
     }
 }
