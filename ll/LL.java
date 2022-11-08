@@ -131,6 +131,9 @@ public class LL {
         for(int num: arr){
             list.addLast(num);
         }
+        int a=5;
+        int b=a++ * 3;
+        System.out.println(b);
         list.printList();
         list.deleteNode(6);
         list.printList();
